@@ -27,6 +27,9 @@
 
     # Media
     tuxpaint
+    discord
+    telegram-desktop
+    vscode-fhs
   ];
 
   xdg.enable = true;
