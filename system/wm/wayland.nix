@@ -8,7 +8,7 @@
             ];
 
   environment.systemPackages = with pkgs;
-    [ wayland waydroid
+    [ wayland waydroid gnome.gdm
       (sddm-chili-theme.override {
         themeConfig = {
           background = config.stylix.image;
@@ -19,7 +19,7 @@
           recursiveBlurRadius = 5;
         };})
     ];
-
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   # Configure xwayland
   services.xserver = {
     enable = true;
@@ -30,8 +30,9 @@
     };
     displayManager.sddm = {
       enable = true;
+      autoNumlock = true;
       wayland.enable = true;
-      enableHidpi = true;
+      # enableHidpi = true;
       theme = "chili";
       package = pkgs.sddm;
     };

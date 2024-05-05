@@ -237,9 +237,9 @@
        bind=SUPERSHIFT,P,exec,hyprprofile-dmenu
 
        # 3 monitor setup
-       monitor=eDP-1,1920x1080,1000x1080,1
-       monitor=HDMI-A-1,1920x1080,1920x0,1
-       monitor=DP-1,1920x1080,0x0,1
+       monitor=DP-2,3440x1440@100,-3440x180,1,transform,0
+       #monitor=HDMI-A-1,1920x1080,1920x0,1
+       monitor=DP-1,highres@highrr,0x0,1,transform,1
 
        # hdmi tv
        #monitor=eDP-1,1920x1080,1920x0,1
@@ -253,9 +253,17 @@
          force_zero_scaling = true
        }
 
-       env = WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1
+       #env = WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1
        env = QT_QPA_PLATFORMTHEME,qt5ct
 
+       # TODO Add nvidia specific env stuff
+       env = LIBVA_DRIVER_NAME,nvidia
+      env = XDG_SESSION_TYPE,wayland
+      env = GBM_BACKEND,nvidia-drm
+      env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+      env = WLR_NO_HARDWARE_CURSORS,1
+      env = NVD_BACKEND,direct
+      env = ELECTRON_OZONE_PLATFORM_HINT,auto
        binds {
          movefocus_cycles_fullscreen = false
        }
@@ -480,7 +488,7 @@
 
     label {
       monitor =
-      text = Hello, Emmet
+      text = Hello, zer0
       color = rgb(''+config.lib.stylix.colors.base07-rgb-r+'',''+config.lib.stylix.colors.base07-rgb-g+'', ''+config.lib.stylix.colors.base07-rgb-b+'')
       font_size = 25
       font_family = ''+userSettings.font+''
