@@ -47,7 +47,10 @@
 
   # Bootloader
   # Use systemd-boot if uefi, default to grub otherwise
-  boot.loader.systemd-boot.enable = if (systemSettings.bootMode == "uefi") then true else false;
+  boot.loader.systemd-boot = lib.mkIf (systemSettings.bootMode == "uefi") {
+    enable = true;
+    consoleMode = "max";
+  };
   boot.loader.efi.canTouchEfiVariables = if (systemSettings.bootMode == "uefi") then true else false;
   boot.loader.efi.efiSysMountPoint = systemSettings.bootMountPath; # does nothing if running bios rather than uefi
   boot.loader.grub.enable = if (systemSettings.bootMode == "uefi") then false else true;
