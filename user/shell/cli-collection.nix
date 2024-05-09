@@ -19,6 +19,8 @@
     hwinfo
     pciutils
     numbat
+    tldr
+    nh # nix helper for prettier rebuilds
     (pkgs.callPackage ../pkgs/pokemon-colorscripts.nix { })
     (pkgs.writeShellScriptBin "airplane-mode" ''
       #!/bin/sh

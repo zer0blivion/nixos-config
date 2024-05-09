@@ -14,6 +14,18 @@
 
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
+  home.file = {
+      # Disable HTTP2 to improve steam download speeds
+      ".local/share/Steam/steam_dev.cfg" = {
+        text = ''
+          @nClientDownloadEnableHTTP2PlatformLinux 0
+          @fDownloadRateImprovementToAddAnotherConnection 1.0
+        '';
+      };
+  };
+
+
+
   home.packages = with pkgs; [
     # Core
     zsh
@@ -27,7 +39,8 @@
 
     # Media
     tuxpaint
-    discord
+    # discord
+    vesktop
     telegram-desktop
     vscode-fhs
   ];

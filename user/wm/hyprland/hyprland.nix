@@ -109,6 +109,7 @@
        bind=SUPERCTRL,R,exec,phoenix refresh
 
        bind=SUPER,code:47,exec,fuzzel
+       bind=SUPER,R,exec,fuzzel
        bind=SUPER,X,exec,fnottctl dismiss
        bind=SUPERSHIFT,X,exec,fnottctl dismiss all
        bind=SUPER,Q,killactive
@@ -184,6 +185,9 @@
        bind=SUPER,M,exec,pypr toggle musikcube && hyprctl dispatch bringactivetotop
        bind=SUPER,B,exec,pypr toggle btm && hyprctl dispatch bringactivetotop
        bind=SUPER,code:172,exec,pypr toggle pavucontrol && hyprctl dispatch bringactivetotop
+
+       bind=ALT,Alt_L,pass,^(vesktop)$
+
        $scratchpadsize = size 80% 85%
 
        $scratchpad = class:^(scratchpad)$
@@ -256,8 +260,8 @@
        #env = WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1
        env = QT_QPA_PLATFORMTHEME,qt5ct
 
-       # TODO Add nvidia specific env stuff
-       env = LIBVA_DRIVER_NAME,nvidia
+      # nvidia specific env stuff
+      env = LIBVA_DRIVER_NAME,nvidia
       env = XDG_SESSION_TYPE,wayland
       env = GBM_BACKEND,nvidia-drm
       env = __GLX_VENDOR_LIBRARY_NAME,nvidia

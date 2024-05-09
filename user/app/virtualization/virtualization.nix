@@ -11,6 +11,8 @@
     lxc
     swtpm
     bottles
+    quickemu
+    quickgui
 
     # Filesystems
     dosfstools

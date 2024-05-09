@@ -6,14 +6,14 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = false;
+    powerManagement.enable = true; # fixes corruption on resume from sleep
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
   environment.systemPackages = with pkgs;
-    [ 
+    [
       nvidia-vaapi-driver
     ];
   # OpenGL
